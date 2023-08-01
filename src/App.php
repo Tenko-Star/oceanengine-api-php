@@ -4,10 +4,12 @@ namespace Tenko\OceanEngine;
 
 use Psr\Container\ContainerInterface;
 use Tenko\OceanEngine\Client\OAuth;
+use Tenko\OceanEngine\Client\Request;
 use Tenko\OceanEngine\Library\Container;
 
 /**
  * @property-read OAuth $OAuth
+ * @property-read Request $Request
  */
 class App
 {
