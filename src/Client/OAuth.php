@@ -32,7 +32,7 @@ class OAuth extends BaseClient
             'auth_code' => $authCode
         ];
 
-        $response = Requests::post($api, ['Content-Type' => 'application/json'], $data);
+        $response = Requests::post($api, ['Content-Type' => 'application/json;charset=UTF-8'], json_encode($data, JSON_FORCE_OBJECT));
 
         if (!$response->success) {
             throw new \Exception('Error: request fail');
