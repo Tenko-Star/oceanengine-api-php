@@ -96,4 +96,12 @@ class OAuth extends BaseClient
 
         return $this->parseUrl($api, $data);
     }
+
+    public function callback(callable $handler): void
+    {
+        $authCode = $_GET['auth_code'] ?? '';
+        $state = $_GET['state'] ?? '';
+
+        $handler($authCode, $state);
+    }
 }

@@ -33,4 +33,23 @@ class TestOAuth extends TestCase
         $expected = "https://ad.oceanengine.com/openapi/audit/oauth.html?app_id=$uAppId&redirect_uri=$uRedirectUrl&state=test_state&scope=%5B1%2C2%2C3%2C41%5D";
         $this->assertEquals($expected, $url);
     }
+
+    public function testCallback()
+    {
+        $_GET['auth_code'] = '123456';
+        $_GET['state'] = 'test';
+
+        $authCode = '';
+        $stateStr = '';
+
+        $app = new App([]);
+
+        $app->OAuth->callback(function ($code, $state) use (&$authCode, &$stateStr) {
+            $authCode = $code;
+            $stateStr = $state;
+        });
+
+        $this->assertEquals('123456', $authCode);
+        $this->assertEquals('test', $stateStr);
+    }
 }
