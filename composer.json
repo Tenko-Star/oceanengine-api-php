@@ -1,0 +1,25 @@
+{
+    "name": "tenko/oceanengine-api-php",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Tenko\\OceanEngine\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tenko",
+            "email": "admin@tenko.life"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=8.0",
+        "rmccue/requests": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.2",
+        "psr/container": "^2.0"
+    }
+}
