@@ -63,7 +63,7 @@ class OAuth extends BaseClient
             'refresh_token' => $refreshToken
         ];
 
-        $response = Requests::post($api, ['Content-Type' => 'application/json'], $data);
+        $response = Requests::post($api, ['Content-Type' => 'application/json'], json_encode($data));
 
         if (!$response->success) {
             throw new \Exception('Error: request fail');
