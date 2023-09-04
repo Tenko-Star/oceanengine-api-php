@@ -29,7 +29,7 @@ class Request
         return $this->request($api, $params, $body, $json, Requests::POST);
     }
 
-    public function request(string $api, array $params = null, array $body = null, bool $json = true, string $type = Requests::GET): Response
+    public function request(string $api, array $params = null, array $body = null, bool $json = true, string $type = Requests::GET, array $options = []): Response
     {
         $query = '';
         $bodyData = '';
@@ -54,7 +54,7 @@ class Request
         }
 
         $api = self::BASE_URL . ltrim($api, '/');
-        $response = Requests::request($api, $header, $bodyData, $type);
+        $response = Requests::request($api, $header, $bodyData, $type, $options);
 
         if (!$response->success) {
             throw new ResponseException(sprintf("request error: \nrequest url: %s\nbody: %s", $api, $response->body));
